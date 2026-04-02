@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: greendeployment
+  labels:
+    app: demoapp
+    env: green
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: demoapp
+      env: green
+  template:
+    metadata:
+      labels:
+        app: demoapp
+        env: green
+    spec:
+      containers:
+        - name: cont1
+          image: shaikmustafa/dm
+          ports:
+            - containerPort: 80
