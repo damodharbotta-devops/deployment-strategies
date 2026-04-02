@@ -1,0 +1,26 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bluedeployment
+  labels:
+    app: demoapp
+    env: blue
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: demoapp
+      env: blue
+  template:
+    metadata:
+      labels:
+        app: demoapp
+        env: blue
+    spec:
+      containers:
+        - name: cont1
+          image: shaikmustafa/cycle
+          ports:
+            - containerPort: 80    
